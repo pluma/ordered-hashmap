@@ -1,0 +1,26 @@
+{
+  "name": "ordered-hashmap",
+  "version": "1.0.0-dev",
+  "description": "ES3-compatible ordered hashmap that supports arbitrary keys.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --growl -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pluma/ordered-hashmap.git"
+  },
+  "keywords": [
+    "ordered",
+    "hashmap",
+    "map",
+    "sorted",
+    "dict"
+  ],
+  "author": "Alan Plum <me@pluma.io>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pluma/ordered-hashmap/issues"
+  },
+  "homepage": "https://github.com/pluma/ordered-hashmap"
+}
