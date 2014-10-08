@@ -264,7 +264,7 @@ m.values(); // ['a', 'b']
 m.count() === 2;
 ```
 
-### OrderedHashMap::forEach(callback:Function)
+## OrderedHashMap::forEach(callback:Function)
 
 Invokes the given callback function for each item in the map.
 
@@ -290,7 +290,7 @@ Console output:
 */
 ```
 
-### OrderedHashMap::map(callback:Function):\*
+## OrderedHashMap::map(callback:Function):\*
 
 Returns an array containing the result of calling the given callback function for each item in the map.
 
@@ -300,7 +300,7 @@ The callback function will be passed the following arguments for each item in th
  * the key of the item
  * the map itself
 
-### OrderedHashMap::filter(callback:Function):OrderedHashMap
+## OrderedHashMap::filter(callback:Function):OrderedHashMap
 
 Returns a new `OrderedHashMap` containing only the items for which the given callback function returns a truthy value (e.g. `true`).
 
@@ -310,7 +310,7 @@ The callback function will be passed the following arguments for each item in th
  * the key of the item
  * the map itself
 
-### OrderedHashMap::reduce(callback:Function, [initial:\*]):\*
+## OrderedHashMap::reduce(callback:Function, [initial:\*]):\*
 
 Applies the callback function against an accumulator and each item in the map, starting with the first item, and returns the accumulator.
 
@@ -333,7 +333,7 @@ var sum = m.reduce(function (a, b) {return a + b;});
 sum === 60;
 ```
 
-### OrderedHashMap::reduceRight(callback:Function, [initial:\*]):\*
+## OrderedHashMap::reduceRight(callback:Function, [initial:\*]):\*
 
 Applies the callback function against an accumulator and each item in the map, starting with the last item, and returns the accumulator.
 
