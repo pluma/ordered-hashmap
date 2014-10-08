@@ -64,11 +64,7 @@ Creates a new `OrderedHashMap` from an array of values with the keys being set t
 Example:
 
 ```js
-var m = OrderedHashMap.from([
-  'x',
-  23,
-  'hello'
-]);
+var m = OrderedHashMap.from(['x', 23, 'hello']);
 m.count() === 3;
 m.get(0) === 'x';
 m.get(1) === 23;
@@ -110,11 +106,7 @@ Example:
 function alpha(value, i, arr) {
   return String.fromCharCode('a'.charCodeAt(0) + i);
 }
-var m = OrderedHashMap.from([
-  'x',
-  23,
-  'hello'
-], alpha);
+var m = OrderedHashMap.from(['x', 23, 'hello'], alpha);
 m.count() === 3;
 m.get('a') === 'x';
 m.get('b') === 23;
