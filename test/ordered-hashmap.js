@@ -131,3 +131,38 @@ describe('OrderedHashMap::_hash', function () {
     expect(self._nextId).to.equal(25);
   });
 });
+
+describe('sub-classing OrderedHashMap', function () {
+  function OrderedStringMap() {
+    OrderedHashMap.call(this);
+  }
+  function Temp() {}
+  Temp.prototype = OrderedHashMap.prototype;
+  OrderedStringMap.prototype = new Temp();
+  OrderedStringMap.prototype._hash = function (x) {
+    return '"' + x;
+  };
+  OrderedStringMap.from = OrderedHashMap.from;
+  OrderedStringMap.fromTuples = OrderedHashMap.fromTuples;
+  it('respects overriding _hash', function () {
+    var m = new OrderedStringMap();
+    m.set(25, 'hello');
+    expect(m.get(25)).to.equal('hello');
+    expect(m.get('25')).to.equal('hello');
+  });
+  it('allows simply copying "from"', function () {
+    var vals = ['a', 'b', 'c'];
+    var m = OrderedStringMap.from(vals);
+    expect([m.get(0), m.get(1), m.get(2)]).to.eql(vals);
+    expect([m.get('0'), m.get('1'), m.get('2')]).to.eql(vals);
+  });
+  it('allows simply copying "fromTuples"', function () {
+    var vals = [[0, 'a'], ['x', 'b'], [false, 'c']];
+    var m = OrderedStringMap.fromTuples(vals);
+    expect(m.get(0)).to.equal('a');
+    expect(m.get('0')).to.equal('a');
+    expect(m.get('x')).to.equal('b');
+    expect(m.get(false)).to.equal('c');
+    expect(m.get('false')).to.equal('c');
+  });
+});

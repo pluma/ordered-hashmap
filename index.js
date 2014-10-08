@@ -27,7 +27,8 @@ function OrderedHashMap() {
   this._nextId = 0;
 }
 OrderedHashMap.from = function (arr, keyProp) {
-  var m = new OrderedHashMap();
+  var Ctor = this;
+  var m = new Ctor();
   for (var i = 0; i < arr.length; i++) {
     var value = arr[i];
     var key = keyProp ? (
@@ -41,7 +42,8 @@ OrderedHashMap.from = function (arr, keyProp) {
   return m;
 };
 OrderedHashMap.fromTuples = function (arr) {
-  var m = new OrderedHashMap();
+  var Ctor = this;
+  var m = new Ctor();
   for (var i = 0; i < arr.length; i++) {
     var item = arr[i];
     var key = item[0];
@@ -193,15 +195,27 @@ OrderedHashMap.prototype.filter = function (fn) {
   return m;
 };
 OrderedHashMap.prototype.reduce = function (fn, initial) {
+  var i = 0;
   var accu = initial;
-  for (var i = 0; i < this._order.length; i++) {
+  if (accu === undefined) {
+    if (!this._order.length) throw new TypeError('Must provide an initial value for empty maps');
+    accu = this._values[this._order[0]];
+    i = 1;
+  }
+  for (; i < this._order.length; i++) {
     var hash = this._order[i];
     accu = fn(accu, this._values[hash], this._keys[hash], this);
   }
   return accu;
 };
 OrderedHashMap.prototype.reduceRight = function (fn, initial) {
+  var i = this._order.length;
   var accu = initial;
+  if (accu === undefined) {
+    if (!this._order.length) throw new TypeError('Must provide an initial value for empty maps');
+    accu = this._values[this._order[i - 1]];
+    i -= 1;
+  }
   for (var i = this._order.length; i > 0; i--) {
     var hash = this._order[i - 1];
     accu = fn(accu, this._values[hash], this._keys[hash], this);
