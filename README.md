@@ -16,10 +16,6 @@ Aside from not guaranteeing that insertion order will be maintained when iterati
 
 Although these ES6 features can be polyfilled in ES5 environments, some people have to work with ES3 environments where complete polyfills will not work. Also, these data structures are built around the concept of iterators, which creates a lot of unnecessary overhead in non-ES6 environments.
 
-# Why not use {insert module here}?
-
-Most alternative implementations either have a clunky API or try to re-implement Map/WeakMap.
-
 # Install
 
 ## With NPM
