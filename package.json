@@ -1,6 +1,6 @@
 {
   "name": "ordered-hashmap",
-  "version": "0.1.0-dev",
+  "version": "1.0.0",
   "author": "Alan Plum <me@pluma.io>",
   "description": "ES3-compatible ordered hashmap that supports arbitrary keys.",
   "licenses": {
