@@ -26,6 +26,20 @@ function OrderedHashMap() {
   this._id = Date.now() + '$' + String(Math.random()).slice(2);
   this._nextId = 0;
 }
+OrderedHashMap.from = function (arr, keyProp) {
+  var m = new OrderedHashMap();
+  for (var i = 0; i < arr.length; i++) {
+    var value = arr[i];
+    var key = keyProp ? (
+      typeof keyProp === 'function' ? keyProp(value, i, arr) : value[keyProp]
+    ) : i;
+    var hash = m._hash(key);
+    m._order.push(hash);
+    m._keys[hash] = key;
+    m._values[hash] = value;
+  }
+  return m;
+};
 OrderedHashMap.fromTuples = function (arr) {
   var m = new OrderedHashMap();
   for (var i = 0; i < arr.length; i++) {
@@ -38,21 +52,9 @@ OrderedHashMap.fromTuples = function (arr) {
   }
   return m;
 };
-OrderedHashMap.fromValues = function (arr, keyPropName) {
-  var m = new OrderedHashMap();
-  for (var i = 0; i < arr.length; i++) {
-    var value = arr[i];
-    var key = keyPropName ? value[keyPropName] : i;
-    var hash = m._hash(key);
-    m._order.push(hash);
-    m._keys[hash] = key;
-    m._values[hash] = value;
-  }
-  return m;
-};
 OrderedHashMap.prototype._hash = function (key) {
   var t = typeof key;
-  if (!key || t === 'boolean' || t === 'number') return '%' + key;
+  if (key === null || key === undefined || t === 'boolean' || t === 'number') return '%' + key;
   if (t === 'string') return '"' + key;
   if (t !== 'object' && t !== 'function') return '?' + key;
   if (key instanceof Date) return '@' + Number(key);

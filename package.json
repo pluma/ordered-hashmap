@@ -1,10 +1,11 @@
 {
   "name": "ordered-hashmap",
-  "version": "1.0.0-dev",
+  "version": "0.1.0-dev",
+  "author": "Alan Plum <me@pluma.io>",
   "description": "ES3-compatible ordered hashmap that supports arbitrary keys.",
-  "main": "index.js",
-  "scripts": {
-    "test": "mocha --growl -R spec"
+  "licenses": {
+    "type": "MIT",
+    "url": "https://github.com/pluma/ordered-hashmap/blob/master/LICENSE"
   },
   "repository": {
     "type": "git",
@@ -17,10 +18,26 @@
     "sorted",
     "dict"
   ],
-  "author": "Alan Plum <me@pluma.io>",
-  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "coveralls": "^2.11.2",
+    "expect.js": "^0.3.1",
+    "istanbul": "^0.3.2",
+    "jshint": "^2.5.6",
+    "mocha": "^1.21.4"
+  },
+  "main": "index.js",
+  "scripts": {
+    "lint": "jshint index.js test",
+    "test": "mocha --growl -R spec",
+    "cover": "npm run lint && istanbul cover --report lcov _mocha -- -R spec",
+    "coveralls": "npm run cover && cat ./coverage/lcov.info | coveralls ; rm -rf ./coverage"
+  },
   "bugs": {
     "url": "https://github.com/pluma/ordered-hashmap/issues"
   },
-  "homepage": "https://github.com/pluma/ordered-hashmap"
+  "homepage": "https://github.com/pluma/ordered-hashmap",
+  "engines": {
+    "node": ">=0.10"
+  }
 }
