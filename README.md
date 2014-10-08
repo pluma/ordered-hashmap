@@ -143,7 +143,7 @@ m.indexOf('chicken') === 2;
 
 Returns the number of items in the map.
 
-## OrderedHashMap::keyAt(index:Number):*
+## OrderedHashMap::keyAt(index:Number):\*
 
 Returns the key of the item at the given index.
 
@@ -155,7 +155,7 @@ m.set('x', 'hello');
 m.keyAt(0) === 'x';
 ```
 
-## OrderedHashMap::indexOf(key:*):Number
+## OrderedHashMap::indexOf(key:\*):Number
 
 Returns the index of the item with the given key in the map, or `-1` if there is no matching item in the map.
 
@@ -166,7 +166,7 @@ m.indexOf('x') === 0;
 m.indexOf('y') === -1;
 ```
 
-## OrderedHashMap::insert(index:Number, key:*, value:*)
+## OrderedHashMap::insert(index:Number, key:\*, value:\*)
 
 Inserts the given key/value at the given index.
 
@@ -174,19 +174,19 @@ If index is less than zero, the key will be prepended to the beginning of the ma
 
 If index is greater than or equal to the size of the map, the key will be appended to the end of the map.
 
-## OrderedHashMap::set(key:*, value:*)
+## OrderedHashMap::set(key:\*, value:\*)
 
 Replaces the value for the given key with the given value. If the key does not already exist in the map, it will be appended to the end of the map.
 
-## OrderedHashMap::get(key:*):*
+## OrderedHashMap::get(key:\*):\*
 
 Returns the value for the given key.
 
-## OrderedHashMap::remove(key:*):Boolean
+## OrderedHashMap::remove(key:\*):Boolean
 
 Removes the item with the given key from the map. Returns `false` if the key does not exist in the map or `true` if the item was removed successfully.
 
-## OrderedHashMap::unshift(key:*, value:*)
+## OrderedHashMap::unshift(key:\*, value:\*)
 
 Prepends the given key/value to the map. If the map already contains an item with the given key, that item will be removed.
 
@@ -204,7 +204,7 @@ m.shift(); // ['a', 'x']
 m.count() === 1;
 ```
 
-## OrderedHashMap::push(key:*, value:*)
+## OrderedHashMap::push(key:\*, value:\*)
 
 Appends the given key/value to the map. If the map already contains an item with the given key, that item will be removed.
 
@@ -290,7 +290,7 @@ Console output:
 */
 ```
 
-### OrderedHashMap::map(callback:Function):*
+### OrderedHashMap::map(callback:Function):\*
 
 Returns an array containing the result of calling the given callback function for each item in the map.
 
@@ -310,7 +310,7 @@ The callback function will be passed the following arguments for each item in th
  * the key of the item
  * the map itself
 
-### OrderedHashMap::reduce(callback:Function, [initial:*]):*
+### OrderedHashMap::reduce(callback:Function, [initial:\*]):\*
 
 Applies the callback function against an accumulator and each item in the map, starting with the first item, and returns the accumulator.
 
@@ -333,7 +333,7 @@ var sum = m.reduce(function (a, b) {return a + b;});
 sum === 60;
 ```
 
-### OrderedHashMap::reduceRight(callback:Function, [initial:*]):*
+### OrderedHashMap::reduceRight(callback:Function, [initial:\*]):\*
 
 Applies the callback function against an accumulator and each item in the map, starting with the last item, and returns the accumulator.
 
