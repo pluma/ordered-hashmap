@@ -139,11 +139,11 @@ m.keyAt(1) === 23;
 m.indexOf('chicken') === 2;
 ```
 
-## OrderedHashMap::count():Number
+## map.count():Number
 
 Returns the number of items in the map.
 
-## OrderedHashMap::keyAt(index:Number):\*
+## map.keyAt(index:Number):\*
 
 Returns the key of the item at the given index.
 
@@ -155,7 +155,7 @@ m.set('x', 'hello');
 m.keyAt(0) === 'x';
 ```
 
-## OrderedHashMap::indexOf(key:\*):Number
+## map.indexOf(key:\*):Number
 
 Returns the index of the item with the given key in the map, or `-1` if there is no matching item in the map.
 
@@ -166,7 +166,7 @@ m.indexOf('x') === 0;
 m.indexOf('y') === -1;
 ```
 
-## OrderedHashMap::insert(index:Number, key:\*, value:\*)
+## map.insert(index:Number, key:\*, value:\*)
 
 Inserts the given key/value at the given index.
 
@@ -174,23 +174,23 @@ If index is less than zero, the key will be prepended to the beginning of the ma
 
 If index is greater than or equal to the size of the map, the key will be appended to the end of the map.
 
-## OrderedHashMap::set(key:\*, value:\*)
+## map.set(key:\*, value:\*)
 
 Replaces the value for the given key with the given value. If the key does not already exist in the map, it will be appended to the end of the map.
 
-## OrderedHashMap::get(key:\*):\*
+## map.get(key:\*):\*
 
 Returns the value for the given key.
 
-## OrderedHashMap::remove(key:\*):Boolean
+## map.remove(key:\*):Boolean
 
 Removes the item with the given key from the map. Returns `false` if the key does not exist in the map or `true` if the item was removed successfully.
 
-## OrderedHashMap::unshift(key:\*, value:\*)
+## map.unshift(key:\*, value:\*)
 
 Prepends the given key/value to the map. If the map already contains an item with the given key, that item will be removed.
 
-## OrderedHashMap::shift():Array
+## map.shift():Array
 
 Removes the first item in the map and returns it as a key/value tuple.
 
@@ -204,11 +204,11 @@ m.shift(); // ['a', 'x']
 m.count() === 1;
 ```
 
-## OrderedHashMap::push(key:\*, value:\*)
+## map.push(key:\*, value:\*)
 
 Appends the given key/value to the map. If the map already contains an item with the given key, that item will be removed.
 
-## OrderedHashMap::pop():Array
+## map.pop():Array
 
 Removes the last item in the map and returns it as a key/value tuple.
 
@@ -222,7 +222,7 @@ m.pop(); // ['b', 'y']
 m.count() === 1;
 ```
 
-## OrderedHashMap::items():Array
+## map.items():Array
 
 Returns an array containing key/value tuples for each item in the map.
 
@@ -236,7 +236,7 @@ m.items(); // [['a', 'x'], ['b', 'y']]
 m.count() === 2;
 ```
 
-## OrderedHashMap::values():Array
+## map.values():Array
 
 Returns an array containing the value of each item in the map.
 
@@ -250,7 +250,7 @@ m.values(); // ['x', 'y']
 m.count() === 2;
 ```
 
-## OrderedHashMap::values():Array
+## map.values():Array
 
 Returns an array containing the key of each item in the map.
 
@@ -264,7 +264,7 @@ m.values(); // ['a', 'b']
 m.count() === 2;
 ```
 
-## OrderedHashMap::forEach(callback:Function)
+## map.forEach(callback:Function)
 
 Invokes the given callback function for each item in the map.
 
@@ -290,7 +290,7 @@ Console output:
 */
 ```
 
-## OrderedHashMap::map(callback:Function):\*
+## map.map(callback:Function):\*
 
 Returns an array containing the result of calling the given callback function for each item in the map.
 
@@ -300,7 +300,7 @@ The callback function will be passed the following arguments for each item in th
  * the key of the item
  * the map itself
 
-## OrderedHashMap::filter(callback:Function):OrderedHashMap
+## map.filter(callback:Function):OrderedHashMap
 
 Returns a new `OrderedHashMap` containing only the items for which the given callback function returns a truthy value (e.g. `true`).
 
@@ -310,7 +310,7 @@ The callback function will be passed the following arguments for each item in th
  * the key of the item
  * the map itself
 
-## OrderedHashMap::reduce(callback:Function, [initial:\*]):\*
+## map.reduce(callback:Function, [initial:\*]):\*
 
 Applies the callback function against an accumulator and each item in the map, starting with the first item, and returns the accumulator.
 
@@ -333,7 +333,7 @@ var sum = m.reduce(function (a, b) {return a + b;});
 sum === 60;
 ```
 
-## OrderedHashMap::reduceRight(callback:Function, [initial:\*]):\*
+## map.reduceRight(callback:Function, [initial:\*]):\*
 
 Applies the callback function against an accumulator and each item in the map, starting with the last item, and returns the accumulator.
 
