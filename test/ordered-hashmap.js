@@ -79,6 +79,22 @@ describe('OrderedHashMap.fromTuples', function () {
   });
 });
 
+describe('OrderedHashMap.valueAt', function () {
+  it('returns value at index', function () {
+    var vals = [[2, 'a'], ['x', 'b'], [false, 'c']];
+    var m = OrderedHashMap.fromTuples(vals);
+    expect(m.valueAt(0)).to.equal('a');
+    expect(m.valueAt(1)).to.equal('b');
+    expect(m.valueAt(2)).to.equal('c');
+  });
+  it('returns undefined when index is out of bounds', function () {
+    var vals = [[2, 'a'], ['x', 'b'], [false, 'c']];
+    var m = OrderedHashMap.fromTuples(vals);
+    expect(m.valueAt(-1)).to.equal(undefined);
+    expect(m.valueAt(3)).to.equal(undefined);
+  });
+});
+
 describe('OrderedHashMap::_hash', function () {
   var hash = OrderedHashMap.prototype._hash;
   it('is a function', function () {
