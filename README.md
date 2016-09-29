@@ -147,6 +147,18 @@ m.set('x', 'hello');
 m.keyAt(0) === 'x';
 ```
 
+## map.valueAt(index:Number):\*
+
+Returns the value of the item at the given index.
+
+Example:
+
+```js
+var m = new OrderedHashMap();
+m.set('x', 'hello');
+m.valueAt(0) === 'hello';
+```
+
 ## map.indexOf(key:\*):Number
 
 Returns the index of the item with the given key in the map, or `-1` if there is no matching item in the map.
