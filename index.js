@@ -174,7 +174,7 @@ OrderedHashMap.prototype.keys = function () {
 OrderedHashMap.prototype.forEach = function (fn) {
   for (var i = 0; i < this._order.length; i++) {
     var hash = this._order[i];
-    fn(this._values[hash], this._keys[hash], this);
+    fn(this._values[hash], this._keys[hash], i, this);
   }
 };
 OrderedHashMap.prototype.map = function (fn) {
