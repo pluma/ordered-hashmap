@@ -242,7 +242,7 @@ m.values(); // ['x', 'y']
 m.count() === 2;
 ```
 
-## map.values():Array
+## map.keys():Array
 
 Returns an array containing the key of each item in the map.
 
@@ -252,7 +252,7 @@ Example:
 var m = new OrderedHashMap();
 m.set('a', 'x');
 m.set('b', 'y');
-m.values(); // ['a', 'b']
+m.keys(); // ['a', 'b']
 m.count() === 2;
 ```
 
