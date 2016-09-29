@@ -75,6 +75,10 @@ OrderedHashMap.prototype.keyAt = function (i) {
   if (i < 0 || i > this._order.length) return undefined;
   return this._keys[this._order[i]];
 };
+OrderedHashMap.prototype.valueAt = function (i) {
+  if (i < 0 || i > this._order.length) return undefined;
+  return this._values[this._order[i]];
+};
 OrderedHashMap.prototype.indexOf = function (key) {
   var hash = this._hash(key);
   return this._order.indexOf(hash);
