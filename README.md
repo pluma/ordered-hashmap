@@ -258,12 +258,13 @@ m.count() === 2;
 
 ## map.forEach(callback:Function)
 
-Invokes the given callback function for each item in the map.
+Invokes the given callback function for each item in the map, in order.
 
 The callback function will be passed the following arguments for each item in the map:
 
  * the value of the item
  * the key of the item
+ * the index of the item
  * the map itself
 
 Example:
@@ -272,13 +273,13 @@ Example:
 var m = new OrderedHashMap();
 m.set('x', 1);
 m.set('y', 2);
-m.forEach(function (v, k) {
-  console.log(k, '->', v);
+m.forEach(function (v, k, i) {
+  console.log(i, ')', k, '->', v);
 });
 /*
 Console output:
- x -> 1
- y -> 2
+ 0 ) x -> 1
+ 1 ) y -> 2
 */
 ```
 

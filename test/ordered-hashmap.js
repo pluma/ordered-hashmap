@@ -79,6 +79,19 @@ describe('OrderedHashMap.fromTuples', function () {
   });
 });
 
+describe('OrderedHashMap.forEach', function () {
+  it('iterates over all items', function () {
+    var vals = [['x', 'a'], ['y', 'b'], ['z', 'c']];
+    var m = OrderedHashMap.fromTuples(vals);
+    var expected = ['ax0', 'by1', 'cz2',];
+    var result;
+    m.forEach(function(val, key, index){
+      result = val + key + index.toString();
+      expect( result ).to.equal( expected[index] );
+    })
+  });
+});
+
 describe('OrderedHashMap::_hash', function () {
   var hash = OrderedHashMap.prototype._hash;
   it('is a function', function () {
