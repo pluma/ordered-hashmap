@@ -1,3 +1,5 @@
+**NOTE:** This package is no longer being maintained. If you are interested in taking over as maintainer or are interested in the npm package name, get in touch by creating an issue.
+
 # Synopsis
 
 **ordered-hashmap** is an ES3-compatible implementation of a map (or dictionary) data type that accepts arbitrary keys and maintains insertion order.
